@@ -1,0 +1,89 @@
+.panel {
+	background: $col-p3;
+	// border: 2px solid $col-p2;
+	padding: 30px;
+	border-radius: 8px;
+	width: 360px;
+	margin: 0 30px;
+	margin-top: 30px;
+
+	@media screen and (max-width: 500px) {
+		width: 100% !important;
+	}
+
+	.title {
+		color: $col-p0;
+		font-weight: 600;
+		text-align: center;
+		margin-bottom: 20px;
+		padding-bottom: 20px;
+		border-bottom: 1px solid $col-m3;
+	}
+
+	.method {
+		padding-top: 15px;
+		display: inline-block;
+	}
+
+	.body {
+		form {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+
+			.submit_button {
+				background: $col-p4;
+			}
+
+			.separator {
+				background: $col-m3;
+				height: 1px;
+				width: 100%;
+			}
+
+			.res_error {
+				font-size: 14px;
+				background: $col-m2;
+				display: block;
+				width: 100%;
+				color: $col-m1;
+				padding: 10px;
+				border-radius: 8px;
+				border: 1px solid $col-m1;
+			}
+
+			.field {
+				.label {
+					color: $col-p0;
+
+					font-weight: 600;
+					font-size: 14px;
+					margin-bottom: 3px;
+				}
+
+				.input_wrapper {
+					position: relative;
+					input {
+						font-size: 16px;
+						font-weight: 300;
+						padding: 8px;
+						width: 100%;
+						background: $col-p4;
+					}
+					img {
+						cursor: pointer;
+						position: absolute;
+						right: 8px;
+						top: 8px;
+					}
+				}
+
+				.error_message {
+					margin-top: 5px;
+					font-size: 13px;
+					color: $col-m1;
+				}
+			}
+		}
+	}
+}

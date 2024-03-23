@@ -1,0 +1,38 @@
+.header {
+	width: 100vw;
+	// border-bottom: 1px solid $col-p4;
+	display: flex;
+	justify-content: space-between;
+	min-height: 59.5px;
+	background: $col-p3;
+	// background-image: url('./921.jpg');
+	// background-size: 30%;
+	// background-position: 70% 100%;
+
+	.side {
+		padding: 10px;
+		display: flex;
+		align-items: center;
+		.logo {
+		}
+
+		.auth_button {
+			background: $col-p4;
+			color: $col-p1;
+		}
+
+		.profile {
+			.name {
+				border-radius: 8px;
+				user-select: none;
+				padding: 10px;
+				// color: #222222;
+
+				&:hover {
+					background: rgba(1, 1, 1, 0.05);
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}

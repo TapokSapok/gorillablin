@@ -1,0 +1,40 @@
+.body {
+	display: flex;
+	flex-direction: column;
+	.row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		.header {
+			padding-bottom: 10px;
+			margin-bottom: 10px;
+			border-bottom: 1px solid $col-m3;
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			.end_shift_button {
+				background: $col-p5;
+			}
+
+			.shift_time {
+				display: flex;
+				gap: 10px;
+
+				span {
+					opacity: 0.6;
+				}
+			}
+		}
+
+		.key {
+			display: flex;
+			gap: 10px;
+
+			.value {
+			}
+		}
+	}
+}
