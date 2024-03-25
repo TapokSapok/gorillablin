@@ -1,6 +1,7 @@
 import { BACK_URL } from '@/config';
-import { getAccessToken } from '@/services/access-token.service';
-import axios, { type CreateAxiosDefaults } from 'axios';
+import { getAccessToken, removeAccessToken } from '@/services/access-token.service';
+import axios, { AxiosError, type CreateAxiosDefaults } from 'axios';
+import { useRouter } from 'next/navigation';
 
 const options: CreateAxiosDefaults = {
 	baseURL: BACK_URL,
@@ -21,7 +22,13 @@ axiosWithAuth.interceptors.request.use(config => {
 
 axiosWithAuth.interceptors.response.use(
 	config => config,
-	async error => {}
+	async (error: AxiosError) => {
+		if (error?.response?.status === 401 && error.config && !error.config._isRetry) {
+			error.config._isRetry = true;
+			removeAccessToken();
+		}
+		throw error;
+	}
 );
 
 export { axiosClassic, axiosWithAuth };

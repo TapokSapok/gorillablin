@@ -1,6 +1,6 @@
 'use client';
 
-import { BACK_URL } from '@/config';
+import { BACK_URL, SOCKET_URL } from '@/config';
 import { getAccessToken } from '@/services/access-token.service';
 import { userService } from '@/services/user.service';
 import { ICoupon } from '@/types/coupon.types';
@@ -31,7 +31,7 @@ export function Providers({ children }: PropsWithChildren) {
 	useEffect(() => {
 		if (!socket && profile) {
 			setSocket(
-				io('http://localhost:4141', {
+				io(SOCKET_URL, {
 					extraHeaders: {
 						Authorization: `Bearer ${getAccessToken()}`,
 					},

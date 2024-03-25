@@ -60,7 +60,7 @@ export default function CouponMenu({ isActive, setIsActive }: { isActive: boolea
 											<Loader width={80} />
 										</div>
 									))}
-								{cp.status === 'USING' && <div className={styles.using_message}>Промокод на проверке</div>}
+								{cp.status === 'USING' && <div className={styles.using_message}>Купон на проверке</div>}
 								<div className={styles.coupon_title}>КУПОН</div>
 								{Object.entries(positions).map(
 									(p, i2) =>

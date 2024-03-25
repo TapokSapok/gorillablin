@@ -1,10 +1,15 @@
 .body {
 	display: flex;
 	flex-direction: column;
+
 	.row {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+
+		@media screen and (max-width: 500px) {
+			flex-direction: column;
+		}
 
 		.header {
 			padding-bottom: 10px;
@@ -14,6 +19,15 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+
+			@media screen and (max-width: 500px) {
+				flex-direction: column;
+				gap: 10px;
+
+				.end_shift_button {
+					width: 100%;
+				}
+			}
 
 			.end_shift_button {
 				background: $col-p4;

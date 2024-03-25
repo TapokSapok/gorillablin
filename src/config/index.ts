@@ -4,6 +4,7 @@ export const PAGES = {
 };
 
 export const BACK_URL = 'http://localhost:4040/api';
+export const SOCKET_URL = 'http://localhost:4141';
 
 export const PRODUCTS = [
 	{ title: 'Блин обычный', price: 50, img: './products/pancake-default.jpg', type: 'pancake' },

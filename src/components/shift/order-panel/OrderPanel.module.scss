@@ -42,6 +42,10 @@
 					gap: 10px;
 					align-items: center;
 
+					@media screen and (max-width: 538px) {
+						flex-direction: column;
+					}
+
 					&:hover {
 						border: 2px solid $col-p5;
 					}
@@ -50,6 +54,11 @@
 						width: 100px;
 						height: 67px;
 						border-radius: 5px;
+
+						@media screen and (max-width: 538px) {
+							width: 80%;
+							height: 100px;
+						}
 					}
 					.item_title {
 						// color: $col-p1;
@@ -60,13 +69,20 @@
 						align-items: center;
 						position: relative;
 						right: 0;
-						// color: $col-p1;
 						font-size: 20px;
+
 						button {
 							padding: 0px;
 							width: 30px;
 							height: 30px;
 							font-size: 20px;
+						}
+
+						@media screen and (max-width: 538px) {
+							width: 100%;
+							button {
+								width: 100%;
+							}
 						}
 					}
 				}

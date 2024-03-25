@@ -36,10 +36,12 @@ export default function OrderPanel() {
 				return obj;
 			}, {})
 		);
-		forceUpdate();
 	};
 
-	useEffect(() => cartUpdateFunction(), [cart]);
+	useEffect(() => {
+		cartUpdateFunction();
+		forceUpdate();
+	}, [cart]);
 
 	return (
 		<div className={styles.shift_body}>
@@ -59,9 +61,8 @@ export default function OrderPanel() {
 											<button
 												className={styles.rem}
 												onClick={() => {
-													setCart(removeStringFromArray(cart, pc.title));
+													setCart([...removeStringFromArray(cart, pc.title)]);
 													cartUpdateFunction();
-													// forceUpdate();
 												}}
 											>
 												-
@@ -71,6 +72,7 @@ export default function OrderPanel() {
 												className={styles.add}
 												onClick={() => {
 													setCart([...cart, pc.title]);
+													cartUpdateFunction();
 												}}
 											>
 												+
@@ -96,8 +98,12 @@ export default function OrderPanel() {
 											<button
 												className={styles.rem}
 												onClick={() => {
-													setCart(removeStringFromArray(cart, pc.title));
-													forceUpdate();
+													const newCart = [...cart];
+													const index = newCart.indexOf(pc.title);
+													if (index !== -1) {
+														newCart.splice(index, 1);
+													}
+													setCart(newCart);
 												}}
 											>
 												-

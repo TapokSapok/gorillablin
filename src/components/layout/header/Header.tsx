@@ -43,11 +43,9 @@ export default function Header() {
 						<CouponMenu setIsActive={setCouponMenuIsActive} isActive={couponMenuIsActive} />
 					</div>
 				) : (
-					!isLoading && (
-						<button className={styles.auth_button} onClick={() => router.push(PAGES.AUTH)}>
-							Залогинься блинчик
-						</button>
-					)
+					<button className={styles.auth_button} onClick={() => router.push(PAGES.AUTH)}>
+						Залогинься блинчик
+					</button>
 				)}
 			</div>
 		</header>
