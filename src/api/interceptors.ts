@@ -1,8 +1,9 @@
+import { BACK_URL } from '@/config';
 import { getAccessToken } from '@/services/access-token.service';
 import axios, { type CreateAxiosDefaults } from 'axios';
 
 const options: CreateAxiosDefaults = {
-	baseURL: 'http://localhost:4040/api',
+	baseURL: BACK_URL,
 	headers: { 'Content-Type': 'application/json' },
 	withCredentials: true,
 };
@@ -20,10 +21,7 @@ axiosWithAuth.interceptors.request.use(config => {
 
 axiosWithAuth.interceptors.response.use(
 	config => config,
-	async error => {
-		// throw error;
-		// return error;
-	}
+	async error => {}
 );
 
 export { axiosClassic, axiosWithAuth };

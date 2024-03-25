@@ -1,0 +1,110 @@
+.menu {
+	position: absolute;
+	right: 0;
+	top: 0;
+	max-width: 360px;
+	min-width: 360px;
+	height: 100vh;
+	background: $col-p4;
+	z-index: 4;
+	box-shadow: 0px 0 15px rgba(1, 1, 1, 0.1);
+	border-left: 2px solid $col-p5;
+
+	@media screen and (max-width: 360px) {
+		min-width: 0;
+		width: 100%;
+	}
+
+	.header {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 10px;
+		font-size: 17px;
+		border-bottom: 2px solid $col-m3;
+		position: relative;
+
+		img {
+			position: absolute;
+			left: 0;
+			top: 0;
+			padding: 5px;
+			margin: 5px;
+			cursor: pointer;
+			border-radius: 8px;
+			&:hover {
+				background: $col-m3;
+			}
+		}
+	}
+
+	.coupons {
+		padding: 15px;
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+
+		.coupon {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			padding: 15px;
+			// background: rgba(1, 1, 1, 0.2);
+			background: #d4a373;
+			gap: 10px;
+			border-radius: 8px;
+			border: 2px solid $col-m3;
+
+			.coupon_title {
+				font-weight: 600;
+				letter-spacing: 3px;
+				display: flex;
+				justify-content: center;
+				border-bottom: 1px solid $col-m3;
+				padding-bottom: 10px;
+			}
+
+			.positions {
+				.pos_title {
+					opacity: 0.7;
+					font-size: 13px;
+				}
+
+				.position {
+					span {
+						font-size: 13px;
+					}
+				}
+			}
+
+			.use_button {
+				background: $col-p4;
+			}
+
+			.desc {
+				opacity: 0.6;
+				font-size: 12px;
+			}
+		}
+	}
+}
+.loader {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 2;
+	backdrop-filter: blur(2px);
+}
+.using_message {
+	position: absolute;
+	z-index: 3;
+	bottom: 15px;
+	text-align: center;
+	left: 0;
+	width: 100%;
+}

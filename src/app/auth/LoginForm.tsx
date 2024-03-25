@@ -1,16 +1,11 @@
 'use client';
-import { authService } from '@/services/auth.service';
+
 import { ILoginForm } from '@/types/auth.types';
-import { useMutation } from '@tanstack/react-query';
-import { error } from 'console';
-import { useRouter } from 'next/navigation';
 import { SubmitHandler, useForm, useFormState } from 'react-hook-form';
-import { toast } from 'sonner';
 import styles from './Auth.module.scss';
 import { useContext, useState } from 'react';
-import useProfile from '@/hooks/useProfile';
-import { profileContext } from '../providers';
-import { Snowfall } from 'react-snowfall';
+import { ProfileContext } from '../providers';
+import useLogin from './hooks/useLogin';
 
 export default function LoginForm() {
 	const [showPass, setShowPass] = useState(false);
@@ -20,24 +15,7 @@ export default function LoginForm() {
 		handleSubmit,
 		formState: { errors },
 	} = useForm<ILoginForm>({ mode: 'onChange' });
-	const { push } = useRouter();
-	const { setProfile } = useContext(profileContext);
-
-	const {
-		mutate: login,
-		error,
-		isPending,
-	} = useMutation({
-		mutationKey: ['login'],
-		mutationFn: (data: ILoginForm) => authService.login(data),
-		onSuccess(data) {
-			setProfile(data.data.user);
-			toast.success('Успешная авторизация!');
-			reset();
-			push('/');
-		},
-	});
-
+	const { login, error, isPending } = useLogin(reset);
 	const onSubmit: SubmitHandler<ILoginForm> = data => login(data);
 
 	return (

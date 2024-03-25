@@ -1,18 +1,17 @@
+import { ICoupon } from './coupon.types';
 import { IUser } from './user.types';
 
 export interface ICashier {
 	id: number;
-	user: IUser;
 	userId: number;
 	shifts: IShift[];
-	activeShift?: IShift | null;
+	activeShift: IActiveShift | null;
 	totalRevenue: number;
 	totalOrderCount: number;
 }
 
 export interface IShift {
 	id: number;
-	cashier?: ICashier | null;
 	cashierId: number;
 	startTime: string;
 	endTime: string;
@@ -21,10 +20,13 @@ export interface IShift {
 	orders: IOrder[];
 }
 
+export interface IActiveShift extends IShift {
+	coupons: ICoupon[];
+}
+
 export interface IOrder {
 	id: number;
 	shiftId: number;
-	shift?: IShift;
 	products: string[];
 	amount: number;
 	createdAt: string;

@@ -1,0 +1,32 @@
+.dropdown {
+	background: $col-p3;
+	position: absolute;
+	right: 10px;
+	top: 69.5px;
+	border-radius: 8px;
+	z-index: 10;
+	// box-shadow: 0 0 50px $col-p5;
+	border: 2px solid $col-p5;
+
+	.item {
+		width: 100%;
+		background: none;
+		border: none;
+		display: flex;
+		padding: 8px;
+		align-items: center;
+		gap: 8px;
+
+		&:hover {
+			cursor: pointer;
+			background: rgba(1, 1, 1, 0.05);
+		}
+
+		img {
+			width: 20px;
+		}
+		.item_title {
+			user-select: none;
+		}
+	}
+}

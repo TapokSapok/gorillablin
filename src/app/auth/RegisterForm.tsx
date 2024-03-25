@@ -1,6 +1,5 @@
 'use client';
 import { authService } from '@/services/auth.service';
-import { ILoginForm, IRegisterForm } from '@/types/user.types';
 import { useMutation } from '@tanstack/react-query';
 import { error } from 'console';
 import { useRouter } from 'next/navigation';
@@ -8,7 +7,9 @@ import { SubmitHandler, useForm, useFormState } from 'react-hook-form';
 import { toast } from 'sonner';
 import styles from './Auth.module.scss';
 import { useContext, useState } from 'react';
-import { profileContext } from '../providers';
+import { ProfileContext } from '../providers';
+import { IRegisterForm } from '@/types/auth.types';
+import useRegister from './hooks/useRegister';
 
 export default function RegisterForm() {
 	const [showPass, setShowPass] = useState(false);
@@ -18,25 +19,9 @@ export default function RegisterForm() {
 		handleSubmit,
 		formState: { errors },
 	} = useForm<IRegisterForm>({ mode: 'onChange' });
-	const { push } = useRouter();
-	const { setProfile } = useContext(profileContext);
 
-	const {
-		mutate: login,
-		error,
-		isPending,
-	} = useMutation({
-		mutationKey: ['register'],
-		mutationFn: (data: IRegisterForm) => authService.register(data),
-		onSuccess(data) {
-			setProfile(data.data.user);
-			toast.success('Успешная регистрация!');
-			reset();
-			push('/');
-		},
-	});
-
-	const onSubmit: SubmitHandler<IRegisterForm> = data => login(data);
+	const { mutate: reg, isPending, error } = useRegister(reset);
+	const onSubmit: SubmitHandler<IRegisterForm> = data => reg(data);
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)} style={isPending ? { pointerEvents: 'none', opacity: '0.3' } : {}}>

@@ -1,5 +1,5 @@
 export const PAGES = {
-	CASHIER: '/cashier',
+	CASHIER: '/shift',
 	AUTH: '/auth',
 };
 
@@ -10,9 +10,6 @@ export const PRODUCTS = [
 	{ title: 'Блин с ветчиной и сыром', price: 70, img: './products/pancake-vis.jpg', type: 'pancake' },
 	{ title: 'Блин с творогом', price: 70, img: './products/pancake-tvorog.jpg', type: 'pancake' },
 	{ title: 'Блин с бананом и шоколадом', price: 70, img: './products/pancake-bis.jpg', type: 'pancake' },
-	// { title: 'Блин с грибами', price: 70, img: '' },
-	// { title: 'Блин с яблоками', price: 70, img: '' },
-	// { title: 'Блин с мёдом', price: 70, img: '' },
 
 	{ title: 'Варенье', price: 20, img: './products/varenie.jpeg', type: 'addition' },
 	{ title: 'Шоколадный топинг', price: 20, img: './products/toping-sh.jpeg', type: 'addition' },
