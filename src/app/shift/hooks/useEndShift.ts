@@ -11,9 +11,9 @@ export default function useEndShift() {
 		mutationKey: ['end-shift'],
 		mutationFn: () => cashierService.endShift(),
 		onSuccess: () => {
-			toast.success('Смена успешна закрыта');
 			//@ts-ignore
 			setProfile({ ...profile, cashierProfile: { ...profile?.cashierProfile, activeShift: null } });
+			toast.success('Смена закрыта');
 		},
 	});
 

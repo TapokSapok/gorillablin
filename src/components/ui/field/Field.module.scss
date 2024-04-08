@@ -1,6 +1,31 @@
 .field {
-	.label {
-	}
-	input {
-	}
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    &[data-inline="true"] {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .label {
+        font-size: 15px;
+    }
+    input {
+        float: left;
+        background: $col-p4;
+        font-size: 14px;
+        color: #222222;
+        padding: 6px;
+
+        &:focus {
+            outline: 2px solid $col-p5;
+        }
+
+        &[type="checkbox"] {
+            outline: none;
+            width: 20px;
+            margin-top: 2px;
+        }
+    }
 }

@@ -1,0 +1,26 @@
+import styles from "./SecondLoader.module.scss";
+
+export default function SecondLoader({
+  width,
+  stroke,
+}: {
+  width: number;
+  stroke: number;
+}) {
+  return (
+    <svg
+      className={styles.loader}
+      xmlns="http://www.w3.org/2000/svg"
+      width={width}
+      height={width}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={stroke}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+    </svg>
+  );
+}

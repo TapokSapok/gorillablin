@@ -23,8 +23,7 @@ axiosWithAuth.interceptors.request.use(config => {
 axiosWithAuth.interceptors.response.use(
 	config => config,
 	async (error: AxiosError) => {
-		if (error?.response?.status === 401 && error.config && !error.config._isRetry) {
-			error.config._isRetry = true;
+		if (error?.response?.status === 401 && error.config) {
 			removeAccessToken();
 		}
 		throw error;

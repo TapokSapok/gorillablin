@@ -1,0 +1,30 @@
+.item {
+    padding: 15px;
+    background: $col-p4;
+    border-radius: 8px;
+    min-width: 500px;
+
+    .row {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        align-items: center;
+
+        .side {
+            .roles {
+                display: flex;
+                gap: 5px;
+
+                img {
+                    user-select: none;
+                    border-radius: 7px;
+                    cursor: pointer;
+                    padding: 5px;
+                    &:hover {
+                        background: $col-m3;
+                    }
+                }
+            }
+        }
+    }
+}

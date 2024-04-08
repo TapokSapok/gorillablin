@@ -1,0 +1,49 @@
+.sections {
+	backdrop-filter: blur(5px);
+
+	section {
+		height: 500px;
+		width: 100vw;
+		color: #1971c2;
+
+		.title {
+			font-family: var(--brush-font);
+			font-size: 30px;
+			text-align: center;
+			padding-top: 30px;
+			letter-spacing: 1px;
+		}
+
+		.option {
+			font-family: var(--brush-font);
+			font-size: 23px;
+			text-align: center;
+			color: #f08c00;
+			letter-spacing: 1px;
+		}
+
+		.gif {
+			border-radius: 12px;
+			rotate: 5deg;
+		}
+	}
+
+	.sky {
+		background: #e7f5ff;
+	}
+
+	.light_blue {
+		opacity: 0.8;
+		background: #a5d8ff;
+	}
+
+	.light_green {
+		opacity: 0.8;
+		background: #69db7c;
+	}
+
+	.green {
+		opacity: 0.8;
+		background: #40c057;
+	}
+}
