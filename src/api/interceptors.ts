@@ -1,10 +1,9 @@
-import { BACK_URL } from '@/config';
 import { getAccessToken, removeAccessToken } from '@/services/access-token.service';
 import axios, { AxiosError, type CreateAxiosDefaults } from 'axios';
 import { useRouter } from 'next/navigation';
 
 const options: CreateAxiosDefaults = {
-	baseURL: BACK_URL,
+	baseURL: process.env.BACK_URL,
 	headers: { 'Content-Type': 'application/json' },
 	withCredentials: true,
 };
